@@ -1,0 +1,175 @@
+<!-- footwear.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footwear</title>
+    <link rel="icon" type="image/png" href="logo4.jpeg">
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search products, gyms, trainers..." onkeyup="searchFunction()">
+        <button onclick="searchFunction()">🔍</button>
+    </div>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('K.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px 0;
+        }
+        .section {
+            margin: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #ff5733;
+        }
+        .product-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .product {
+            background: #fff;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .product button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            background: #2642cf;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product button:hover {
+            background: #56b522;
+        }
+        footer {
+            background: #222;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .search-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container input {
+    padding: 10px;
+    width: 250px;
+    border: 2px solid #ff5733;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-container button {
+    padding: 10px;
+    margin-left: 5px;
+    border: none;
+    background: #ff5733;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-container button:hover {
+    background: #56b522;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Footwear</h1>
+    </header>
+    
+    <section class="section">
+        <h2>Men Shoes</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="29.jpg">
+                <button>Buy Now</button>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="30.jpg">
+                <button>Buy Now</button>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="31.jpg">
+                <button>Buy Now</button>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <h2>Women Shoes</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="32.jpg">
+                <button>Buy Now</button>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="33.jpg">
+                <button>Buy Now</button>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="34.jpg">
+                <button>Buy Now</button>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Gym Store. All rights reserved.</p>
+    </footer>
+</body>
+<script>
+    function searchFunction() {
+        let input = document.getElementById('searchInput').value.toLowerCase();
+        let items = document.querySelectorAll('.product, .state');
+    
+        items.forEach(item => {
+            let text = item.innerText.toLowerCase();
+            if (text.includes(input)) {
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+        });
+    }
+    </script>
+</html>

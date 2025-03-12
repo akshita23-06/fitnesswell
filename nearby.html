@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Gyms in India</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(to right, #2d2dcd, #4d56ff);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .menu {
+            width: 300px;
+            background: #222;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 4px solid #361979;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+            position: fixed;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu ul li {
+            padding: 15px;
+            margin: 5px 0;
+            background: #333;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .menu ul li:hover {
+            background: #ff5733;
+            transform: scale(1.05);
+        }
+
+        .content {
+            margin-left: 320px;
+            padding: 40px;
+            flex: 1;
+            text-align: center;
+        }
+
+        .state-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #613fdd;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .gym-slider {
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .gym-card {
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .gym-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .gym-description {
+            font-size: 16px;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        🏋️‍♂️ Discover the Best Gyms in India!
+    </header>
+
+    <div class="container">
+        <nav class="menu">
+            <ul>
+                <li onclick="showGyms('Andhra Pradesh')">Andhra Pradesh</li>
+                <li onclick="showGyms('Delhi')">Delhi</li>
+                <li onclick="showGyms('Goa')">Goa</li>
+                <li onclick="showGyms('Gujarat')">Gujarat</li>
+                <li onclick="showGyms('Karnataka')">Karnataka</li>
+                <li onclick="showGyms('Kerala')">Kerala</li>
+                <li onclick="showGyms('Maharashtra')">Maharashtra</li>
+                <li onclick="showGyms('Punjab')">Punjab</li>
+                <li onclick="showGyms('Tamil Nadu')">Tamil Nadu</li>
+                <li onclick="showGyms('West Bengal')">West Bengal</li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <div class="state-box">
+                <h2 id="state-name">Select a State</h2>
+                <div id="gym-slider" class="gym-slider"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 Gym Finder. All Rights Reserved.
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        const gyms = {
+            "Andhra Pradesh": [
+                { name: "Fitlife Gym Guntur", image: "ap1.jpeg", description: "Advanced fitness training with personal coaches." },
+                { name: "MultiFit - Best Functional & Zumba Classes", image: "ap2.jpeg", description: "Best weightlifting and cardio equipment in the state." }
+            ],
+            "Delhi": [
+                { name: "Strength The Gym", image: "delhi1.jpeg", description: "Celebrity trainers and high-tech gym machines." },
+                { name: "Fitness SPA", image: "delhi2.jpeg", description: "Specializes in strength training and functional workouts." }
+            ],
+            "Goa": [
+                { name: "Fitness Factory", image: "goa1.jpeg", description: "Open-air gym near the beach with cross-training." },
+                { name: "Body First Fitness Center", image: "goa2.jpeg", description: "Powerlifting and endurance training facilities." }
+            ],
+            "Gujarat": [
+                { name: "Swoldier Fitness", image: "gujarat2.jpeg", description: "State-of-the-art equipment and yoga classes." },
+                { name: "SFW The GYM", image: "gujarat2.jpeg", description: "24/7 facility with personal training programs." }
+            ],
+            "Karnataka": [
+                { name: "Emerge private fitness studio", image: "karnataka2.jpeg", description: "International standard equipment and training." },
+                { name: "Gravity Fitness Center", image: "karnataka2.jpeg", description: "Modern fitness programs and group workouts." }
+            ],
+            "Kerala": [
+                { name: "Fitness Paradise", image: "kerala-gym1.jpg", description: "Traditional and modern workout methods combined." },
+                { name: "Body Temple", image: "kerala-gym2.jpg", description: "Expert trainers and customized diet plans." }
+            ],
+            "Maharashtra": [
+                { name: "Anytime Fitness", image: "delhi1.jpg", description: "Premium fitness experience with latest equipment." },
+                { name: "Transform Gym", image: "karnataka2.jpg", description: "Specialized in body transformation programs." }
+            ],
+            "Punjab": [
+                { name: "Beast Mode Gym", image: "punjab-gym1.jpg", description: "Focus on strength training and bodybuilding." },
+                { name: "Fitness First", image: "punjab-gym2.jpg", description: "Complete fitness solution with modern amenities." }
+            ],
+            "Tamil Nadu": [
+                { name: "Chennai Fitness Club", image: "tamilnadu-gym1.jpg", description: "Multi-specialty fitness center with pool." },
+                { name: "Flex Gym", image: "tamilnadu-gym2.jpg", description: "Professional bodybuilding and cardio training." }
+            ],
+            "West Bengal": [
+                { name: "Kolkata Gym Elite", image: "bengal-gym1.jpg", description: "Premium fitness experience in heart of city." },
+                { name: "Power Zone", image: "bengal-gym2.jpg", description: "Complete workout solution with certified trainers." }
+            ]
+        };
+
+        function showGyms(state) {
+            document.getElementById("state-name").innerText = "Best Gyms in " + state;
+            const gymSlider = document.getElementById("gym-slider");
+            gymSlider.innerHTML = "";
+
+            gyms[state].forEach(gym => {
+                const gymCard = `
+                    <div class="gym-card">
+                        <img src="${gym.image}" alt="${gym.name}">
+                        <h3>${gym.name}</h3>
+                        <p class="gym-description">${gym.description}</p>
+                    </div>
+                `;
+                gymSlider.innerHTML += gymCard;
+            });
+
+            $(".gym-slider").slick({
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                dots: true,
+                arrows: true
+            });
+        }
+    </script>
+
+</body>
+</html>

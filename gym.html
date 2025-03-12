@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Necessities</title>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search products, gyms, trainers..." onkeyup="searchFunction()">
+        <button onclick="searchFunction()">🔍</button>
+    </div>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #494746;
+            text-align: center;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 20px 0;
+        }
+        .section {
+            margin: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #ff5733;
+        }
+        .product-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .product {
+            background: #dbd9d9;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            width: 200px;
+        }
+        .product img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .product h3 {
+            color: #333;
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .product p {
+            color: #777;
+        }
+        .product .price {
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
+        .product button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            background: #2642cf;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product button:hover {
+            background: #56b522;
+        }
+        footer {
+            background: #222;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .search-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container input {
+    padding: 10px;
+    width: 250px;
+    border: 2px solid #ff5733;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-container button {
+    padding: 10px;
+    margin-left: 5px;
+    border: none;
+    background: #ff5733;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-container button:hover {
+    background: #56b522;
+}
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Gym Necessities</h1>
+    <p>Get the Best Equipment for Your Workout</p>
+</header>
+
+<div class="section">
+    <h2>Dumbbells</h2>
+    <div class="product-list">
+        <div class="product">
+            <img src="25.jpg">
+            <h3>Dumbbells</h3>
+            <p>High-quality adjustable dumbbells for your strength training needs.</p>
+            <div class="price">$50.00</div>
+            <button>Add to Cart</button>
+            <button class="buy-now">Buy Now</button>
+        </div>
+        <div class="product">
+            <img src="26.jpg">
+            <h3>Barbell</h3>
+            <p>Durable barbell for heavy lifting and muscle building.</p>
+            <div class="price">$100.00</div>
+            <button>Add to Cart</button>
+            <button class="buy-now">Buy Now</button>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Weights</h2>
+    <div class="product-list">
+        <div class="product">
+            <img src="27.jpg">
+            <h3>Weights</h3>
+            <p>Set of weights for various exercises and fitness routines.</p>
+            <div class="price">$30.00</div>
+            <button>Add to Cart</button>
+            <button class="buy-now">Buy Now</button>
+        </div>
+        <div class="product">
+            <img src="28.jpg">
+            <h3>Treadmill</h3>
+            <p>High-performance treadmill for indoor running and cardio workouts.</p>
+            <div class="price">$500.00</div>
+            <button>Add to Cart</button>
+            <button class="buy-now">Buy Now</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Gym Necessities. All rights reserved.</p>
+</footer>
+
+</body>
+<script>
+    function searchFunction() {
+        let input = document.getElementById('searchInput').value.toLowerCase();
+        let items = document.querySelectorAll('.product, .state');
+    
+        items.forEach(item => {
+            let text = item.innerText.toLowerCase();
+            if (text.includes(input)) {
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+        });
+    }
+    </script>
+</html>

@@ -1,0 +1,200 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Store</title>
+    <link rel="icon" type="image/png" href="logo 1.jpeg">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #555050;
+            text-align: center;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 20px 0;
+        }
+        .logo {
+            font-size: 24px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .hero {
+            background: url('Unknown.jpg') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(20, 18, 18);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #333aff, #5561ff);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 25px;
+            margin-top: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(51, 58, 255, 0.4);
+        }
+        footer {
+            background: #222;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+        .video-section {
+            padding: 50px 0;
+            background: #fff;
+        }
+        .video-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+        .hero-content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .hero-content h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .hero-content p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        .search-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container input {
+    padding: 10px;
+    width: 250px;
+    border: 2px solid #ff5733;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-container button {
+    padding: 10px;
+    margin-left: 5px;
+    border: none;
+    background: #ff5733;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-container button:hover {
+    background: #56b522;
+}
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="logo">🏋️ The Fitness Hub</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="women.html">Women Clothing</a></li>
+                <li><a href="men.html">Men Clothing</a></li>
+                <li><a href="gym.html">Gym Necessities</a></li>
+                <li><a href="footwear.html">Footwear</a></li>
+                <li><a href="trainers.html">Best Online Trainers</a></li>
+                <li><a href="nearby.html">Best gym nearby</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Welcome to Gym Store</h2>
+            <p>Your one-stop shop for gym essentials and the best gyms in town.</p>
+            <a href="gym.html" class="btn">Shop Now</a>
+        </div>
+    </section>
+    
+    <section class="video-section">
+        <div class="video-container">
+            <iframe 
+                width="100%" 
+                height="560" 
+                src="https://www.youtube.com/embed/GcVKLNSNWJY" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Gym Store. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+</body>
+<script>
+    function searchFunction() {
+        let input = document.getElementById('searchInput').value.toLowerCase();
+        let items = document.querySelectorAll('.product, .state');
+    
+        items.forEach(item => {
+            let text = item.innerText.toLowerCase();
+            if (text.includes(input)) {
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+        });
+    }
+    </script>
+</html>
